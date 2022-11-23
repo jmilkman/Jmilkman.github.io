@@ -10,12 +10,25 @@ $user='epiz_33062341';  //mysql username
 $pass='upIiMfOCPnf';   //mysql password
 $db='epiz_33062341_Information'; //mysql database
 
-$con=mysqli_connect($host,$user,$pass,$db);
-if($con) {
-echo "Connection successful";
-}
-else {
-  echo "Connection error";
+try {
+
+    $con = mysqli_connect($host,$user,$pass,$db);
+    if ($con) {
+        echo "Connection successful"; 
+    }
+    $sql = "insert into TwoPlayerGame (a,s,w,d) values ('true','true','true','false')";
+    $query = mysqli_query($con,$sql);
+
+
+} catch (Exception $e) {
+    $error = [
+        'error' => $e->getCode(),
+        'message' => $e->getMessage(),
+        'traceString' => $e->getTraceAsString()
+    ];
+
+    // can also use error log: error_log(json_encode($error);
+    var_dump($error);
 }
 ?>
 
