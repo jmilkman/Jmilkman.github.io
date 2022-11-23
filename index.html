@@ -1,49 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Table with database</title>
-<style>
-table {
-border-collapse: collapse;
-width: 100%;
-color: #588c7e;
-font-family: monospace;
-font-size: 25px;
-text-align: left;
-}
-th {
-background-color: #588c7e;
-color: white;
-}
-tr:nth-child(even) {background-color: #f2f2f2}
-</style>
 </head>
 <body>
-<table>
-<tr>
-<th>Id</th>
-<th>Username</th>
-<th>Password</th>
-</tr>
 <?php
-$conn = mysqli_connect("sql203.epizy.com", "upIiMfOCPnf", "", "company");
-// Check connection
-if ($conn->connect_error) {
-die("Connection failed: " . $conn->connect_error);
+
+$host='sql203.epizy.com'; //mysql host name
+$user='epiz_33062341';  //mysql username   
+$pass='upIiMfOCPnf';   //mysql password
+$db='epiz_33062341_Information'; //mysql database
+
+$con=mysqli_connect($host,$user,$pass,$db);
+if($con) {
+echo "Connection successful";
 }
-$sql = "SELECT id, username, password FROM login";
-$result = $conn->query($sql);
-if ($result->num_rows > 0) {
-// output data of each row
-while($row = $result->fetch_assoc()) {
-echo "<tr><td>" . $row["id"]. "</td><td>" . $row["username"] . "</td><td>"
-. $row["password"]. "</td></tr>";
+else {
+  echo "Connection error";
 }
-echo "</table>";
-} else { echo "0 results"; }
-$conn->close();
 ?>
-</table>
+
 </body>
- 
 </html>
