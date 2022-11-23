@@ -1,10 +1,24 @@
 <!DOCTYPE html>
 <html>
+  
 <head>
-<title>How to put PHP in HTML - Simple Example</title>
+    <style>
+        h1 {
+            color: green;
+        }
+    </style>
 </head>
+  
 <body>
-<h1><?php echo "This message is from server side." ?></h1>
+    <center>
+        <h1>Welcome To GFG</h1>
+  
+        <h2>
+            <?php 
+            echo "This is PHP code inside html"
+            ?>
+        </h2>
+    </center>
 </body>
-
+  
 </html>
